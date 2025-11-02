@@ -1,0 +1,136 @@
+<!-- <% layout('layouts/boilerplate') %>
+
+
+<div class="row container">
+    <div class="col-md-6 mx auto" >
+        <h1 class="display-6">Sign up</h1>
+        <form action="/register" method="POST">
+   
+         <div class="mb-3">
+              <label class="form-label" for="username">Username:</label>
+              <input class="form-control" type="text" name="username" id="username" required ="username">
+         </div>
+
+         <div class="mb-3">
+           <label class="form-label" for="email">Email:</label>
+          <input class="form-control" type="email" name="email" id="email" required  placeholder="Email">
+     </div>
+
+     <div class="mb-3">
+          <p class="mb-2">Want to register as ?</p>
+          <div class="mx-2">
+               <label class="form-label" for="buyer">Buyer:</label>
+               <input class="form-check-input" type="radio" value="buyer" required name="role" id="buyer">
+          </div>
+          <div class="mx-2">
+               <label class="form-label" for="seller">Seller:</label>
+               <input class="form-check-input" type="radio" value="Seller" required name="role" id="seller">
+          </div>
+     </div>
+
+     <div class="mb-3">
+          <label class="form-label" for="Roll">University Roll No.:</label>
+          <input class="form-control" type="text" name="Roll" id="Roll" required placeholder="Roll No.">
+     </div>
+
+         <div class="mb-3">
+            <label class="form-label" for="Mobile">Enter Mobile No.:</label>
+            <input class="form-control" type="tel" name="Mobile" id="Mobile" required placeholder="Mobile No.">
+       </div>
+
+       <div class="mb-3">
+        <label class="form-label" for="password">Password:</label>
+        <input class="form-control" type="text" name="password" id="password" required placeholder="password">
+   </div>
+
+   <button type="submit" class="btn btn-sm btn-success">Sign Up</button>
+
+        </form>
+    </div>
+    <p class="fw-light mt-2">Already have an Account,<a href="/login">Login</a></p>
+</div>
+ -->
+ <% layout('layouts/boilerplate') %>
+
+ <style>
+     body {
+         background-image: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+     }
+ 
+     .card {
+         background-color: rgba(255, 255, 255, 0.9);
+         border-radius: 15px;
+         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+     }
+ 
+     .btn-success {
+         background-color: #28a745;
+         border-color: #28a745;
+     }
+ 
+     .btn-success:hover {
+         background-color: #218838;
+         border-color: #218838;
+     }
+ 
+     .btn-login {
+         background-color: #007bff;
+         border-color: #007bff;
+     }
+ 
+     .btn-login:hover {
+         background-color: #0056b3;
+         border-color: #0056b3;
+     }
+ </style>
+ 
+ <div class="container">
+     <div class="row justify-content-center mt-5">
+         <div class="col-md-6">
+             <div class="card">
+                 <div class="card-body">
+                     <h1 class="card-title text-center mb-4">Sign up</h1>
+                     <form action="/register" method="POST">
+                         <div class="mb-3">
+                             <label for="username" class="form-label">Username:</label>
+                             <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username">
+                         </div>
+                         <div class="mb-3">
+                             <label for="email" class="form-label">Email:</label>
+                             <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+                         </div>
+                         <div class="mb-3">
+                             <p class="mb-2">Want to register as?</p>
+                             <div class="form-check">
+                                 <input class="form-check-input" type="radio" name="role" id="buyer" value="buyer" required>
+                                 <label class="form-check-label" for="buyer">Buyer</label>
+                             </div>
+                             <div class="form-check">
+                                 <input class="form-check-input" type="radio" name="role" id="seller" value="Seller" required>
+                                 <label class="form-check-label" for="seller">Seller</label>
+                             </div>
+                         </div>
+                         <div class="mb-3">
+                             <label for="Roll" class="form-label">University Roll No.:</label>
+                             <input type="text" class="form-control" id="Roll" name="Roll" required placeholder="Enter your university roll no.">
+                         </div>
+                         <div class="mb-3">
+                             <label for="Mobile" class="form-label">Mobile No.:</label>
+                             <input type="tel" class="form-control" id="Mobile" name="Mobile" required placeholder="Enter your mobile no." pattern="[6-9][0-9]{9}" title="Please enter a valid Indian mobile number">
+                         </div>
+                         <div class="mb-3">
+                             <label for="password" class="form-label">Password:</label>
+                             <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
+                         </div>
+                         <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+                     </form>
+                     <p class="text-center mt-3 mb-0">Already have an account? <a href="/login" class="btn btn-login">Login</a></p>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ 

@@ -1,0 +1,86 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash') %>
+
+<div>
+  <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://img.freepik.com/premium-photo/photocomposition-horizontal-shopping-banner-with-online-shop-smartphone_23-2151201776.jpg?w=1380" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://img.freepik.com/premium-photo/photocomposition-horizontal-shopping-banner-with-woman-big-smartphone_23-2151201773.jpg?w=1380" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://img.freepik.com/premium-photo/photocomposition-horizontal-online-shopping-banner_23-2151201766.jpg?w=1380" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+</div>
+<div>
+  <section id="feature" class="section-p1">
+    <div class="fe-box">
+        <img src="https://img.freepik.com/premium-photo/free-shipping-concept_173387-978.jpg?w=996">
+      <h6> Free Shipping</h6>
+    </div>
+    <div class="fe-box">
+      <img src="https://img.freepik.com/premium-photo/girl-ticking-her-shopping-checklist_281653-8823.jpg?w=996">
+      <h6> Online Order </h6>
+      </div>
+      <div class="fe-box">
+      <img src="https://img.freepik.com/premium-photo/close-up-hand-holding-coin-jar-against-white-background_1048944-17591643.jpg?w=996">
+      <h6> Save Money </h6>
+      </div>
+      <div class="fe-box">
+      <img src="https://img.freepik.com/free-photo/hand-with-loudspeaker-megaphone-with-lightnings_107791-17382.jpg?t=st=1714313286~exp=1714316886~hmac=c8487df9105ab84368661255dd82dbeddc254f5a53f0f14d1aa256b2164d37d9&w=900">
+      <h6> Promotions</h6>
+      </div>
+      <div class="fe-box">
+      <img src="https://img.freepik.com/free-photo/smiley-woman-posing-sale-shopping-bags_23-2148684550.jpg?t=st=1714313175~exp=1714316775~hmac=00b1dafd439b238090b1f1df6cddca77b52de7d6887566dbe0716ff686339f6b&w=996">
+      <h6> Happy Sell</h6>
+      </div>
+      <div class="fe-box">
+      <img src="https://t4.ftcdn.net/jpg/01/00/12/19/240_F_100121916_A2qaJSuA4AqbZXsxzQTO1oinxQGWNDSN.jpg">
+      <h6> F24/7 Support</h6>
+      </div>
+  </section>
+  
+</div>
+
+<!-- Products Section -->
+<div class="row justify-content-center">
+  <% for(let item of products){ %>
+  <div class="col-lg-3 col-md-6 mb-3">
+      <div class="card mx-auto shadow-sm position-relative">
+          <img src="<%=item.img%>" class="card-img-top img-fluid" style="height: 250px;" alt="<%=item.name%>">
+          <div class="card-body">
+              <h2 class="card-title"><%=item.name%></h2>
+              <h5 class="card-title"><span>&#8377;</span>
+                <%= item.price %></h5>
+              <p class="card-text"><%= item.desc %> </p>
+              <a href="/products/<%=item.id%>" class="btn btn-info">View Product</a>
+              <% if(currentUser && currentUser.role ==='Seller'){%>
+              <form class="d-inline-block" action="/products/<%=item._id%>?_method=DELETE" method="POST">
+                  <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
+              <% } %>
+          </div>
+      </div>
+  </div>
+  <% }  %>
+</div>
+</div>
+<%- include('../partials/footer') %>
+
+</body>
+</html>
+

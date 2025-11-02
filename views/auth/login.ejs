@@ -1,0 +1,48 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+    body {
+        background-image: url('https://img.freepik.com/free-vector/gradient-connection-background_52683-118592.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-primary {
+        background-color: #ff6b6b;
+        border-color: #ff6b6b;
+    }
+
+    .btn-primary:hover {
+        background-color: #ff4d4d;
+        border-color: #ff4d4d;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4">Login</h1>
+                    <form action="/login" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <p class="text-center mt-3 mb-0">Don't have an account? <a href="/register">Sign up</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

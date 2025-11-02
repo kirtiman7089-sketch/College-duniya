@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+
+<div class="container py-4">
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="mb-4">Your Cart</h2>
+      <% let totalCost = 0; %>
+      <% for(let item of user.cart){ %>
+      <div class="row border rounded mb-3 shadow">
+        <div class="col-md-3">
+          <img src="<%=item.img%>" class="img-fluid rounded" alt="<%=item.name%>">
+        </div>
+        <div class="col-md-6 p-3">
+          <h4><%=item.name%></h4>
+          <p class="mb-2"><%=item.desc%></p>
+          <p class="mb-2">Price: <%=item.price%></p>
+        </div>
+        <div class="col-md-3 d-flex align-items-center">
+          <form action="/cart/<%=item._id%>?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+        <% totalCost += item.price; %>
+      </div>
+      <% } %>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Proceed to Checkout</h5>
+          <% for(let item of user.cart){ %>
+          <div class="d-flex justify-content-between mb-2">
+            <span><%= item.name %></span>
+            <span><%= item.price %></span>
+          </div>
+          <% } %>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <span>Subtotal</span>
+            <span><%= totalCost.toFixed(2) %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
